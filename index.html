@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">FOR ELY</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#letters">Letters</a></li>
+            <li><a href="#music">Music</a></li>
+            <li><a href="#">By C</a></li>
+        </ul>
+    </nav>
+    
+    <div class="welcome">
+        <section id="home">
+        <h1>Welcome to the Special Moments</h1>
+        <p>Enjoy the memories as they scroll by...</p>
+        <div class="scroll-container">
+            <img src="images/pic1.jpg" alt="Image 1">
+            <img src="images/pic2.jpg" alt="Image 2">
+            <img src="images/pic3.jpg" alt="Image 3">
+            <img src="images/pic4.jpg" alt="Image 4">
+            <img src="images/pic5.jpg" alt="Image 5">
+        </section>
+        </div>
+        <section id="letters">
+        <div class="letters-section">
+            <h2>Letters</h2>
+            <section class="letters-section">
+                <p class="subtitle">Categorized Notes</p>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn Carl">Carl</button>
+                    <button class="filter-btn Ash">Ash</button>
+
+                </div>
+            <p>Our letters compiled</p>
+            <div class="letters-container">
+                <div class="letter" data-image="images/1st.jpg">
+                    <h3>First Letter</h3>
+                    <p> The letters, the one's that kept me awake at night.</p>
+                    <span class="tag">Carl</span>
+                </div>
+        
+                <div class="letter" data-image="images/2nd.jpg">
+                    <h3>Second Letter</h3>
+                    <p>The letters, one's we achieved something</p>
+                    <span class="tag">Carl</span>
+                </div>
+        
+                <div class="letter" data-image="images/1sta.jpg">
+                    <h3>Third Letter</h3>
+                    <p> The letters, the one's that kept you awake at night.</p>
+                    <span class="tag">Ash</span>
+                </div>
+        
+                <div class="letter" data-image="images/2ndsta.jpg">
+                    <h3>Fourth Letter</h3>
+                    <p>The letters, one's we achieved something; together.</p>
+                    <span class="tag">Ash</span>
+        </section>
+
+        <a href="https://www.youtube.com/watch?v=vBy7FaapGRo" target="_blank" class="music-card" id="music">
+            <div class="music-content">
+                <h1>Music</h1>
+                <p1>Music that reminds me of us</p1>
+                <img src="images/image.png" alt="Song Cover" class="music-cover">
+                <h3>Best Part</h3>
+                <p>Daniel Caesar</p>
+            </div>
+        </a>
+        
+
+        
+                </div>
+            </div>
+        </div>
+        
+                </div>
+            </div>
+        </div>
+        
+            
+            </div>
+        
+        
+            </div>
+            
+        </section>
+        
+    </div>
+    
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const letters = document.querySelectorAll(".letter");
+            const modal = document.createElement("div");
+            modal.classList.add("modal");
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <img id="modal-image" src="" alt="Letter Image">
+                </div>
+            `;
+            document.body.appendChild(modal);
+    
+            const modalImage = document.getElementById("modal-image");
+            const closeModal = modal.querySelector(".close");
+    
+            letters.forEach(letter => {
+                letter.addEventListener("click", function() {
+                    const imageSrc = this.getAttribute("data-image"); // Get image URL
+                    modalImage.src = imageSrc;
+                    modal.style.display = "flex";
+                });
+            });
+    
+            closeModal.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+    
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
